@@ -25,7 +25,7 @@ public class CordDisp : MonoBehaviour
     {
         coord.x = Mathf.RoundToInt(transform.parent.position.x / UnityEditor.EditorSnapSettings.move.x);
         coord.y = Mathf.RoundToInt(transform.parent.position.z / UnityEditor.EditorSnapSettings.move.z);
-        coordText.text = $"{coord.y},{coord.x}";
-        transform.parent.name = coord.ToString();
+        coordText.text = $"{coord.y}, {coord.x}";
+        transform.parent.name = "("+coordText.text+")";
     }
 }
