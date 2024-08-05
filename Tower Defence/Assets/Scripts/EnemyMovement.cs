@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] List<Waypoint> path = new List<Waypoint>();
-    [SerializeField] float waitTime = 1f;
+    [SerializeField] [Range(0f, 5f)] float enemySpeed = 1f;
 
 
     void Start()
@@ -20,8 +20,18 @@ public class EnemyMovement : MonoBehaviour
     {
         foreach(Waypoint waypoint in path){
             // Debug.Log(waypoint.name);
-            transform.position = waypoint.transform.position;
-            yield return new WaitForSeconds(waitTime);
+            Vector3 startPos = transform.position;
+            Vector3 endPos = waypoint.transform.position;
+            float travelPercentage = 0f;
+
+            transform.LookAt(endPos);
+
+            while(travelPercentage<1){
+                travelPercentage+=Time.deltaTime * enemySpeed;
+                transform.position = Vector3.Lerp(startPos, endPos, travelPercentage);
+                yield return new WaitForEndOfFrame();
+            }
+
         }
     }
 }

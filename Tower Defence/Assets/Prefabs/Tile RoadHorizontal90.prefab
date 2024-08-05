@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3671859173594398363, guid: 205c9eaa4396b4aa8b1a0dcd7a1d36f8, type: 3}
+      propertyPath: isPlaceable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4629191985991653502, guid: 205c9eaa4396b4aa8b1a0dcd7a1d36f8, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -70,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8187207876882333354, guid: 205c9eaa4396b4aa8b1a0dcd7a1d36f8, type: 3}
       propertyPath: m_Name
-      value: Tile RoadStraight Variant90
+      value: Tile RoadHorizontal90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
