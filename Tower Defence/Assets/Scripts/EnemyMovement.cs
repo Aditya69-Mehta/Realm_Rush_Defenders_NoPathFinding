@@ -12,8 +12,23 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         // Debug.Log("Initiated Start");
+        FindPath();
         StartCoroutine(FollowWaypoint());
         // Debug.Log("Start Ended");
+    }
+
+    void FindPath(){
+        path.Clear();
+
+        GameObject waypoints = GameObject.FindGameObjectWithTag("Path");
+        foreach(Transform child in waypoints.transform){
+            path.Add(child.GetComponent<Waypoint>());
+
+        }
+    }
+
+    void ReturnToStart(){
+        transform.position = path[0].transform.position;
     }
 
     IEnumerator FollowWaypoint()
@@ -33,5 +48,7 @@ public class EnemyMovement : MonoBehaviour
             }
 
         }
+
+        Destroy(gameObject);
     }
 }

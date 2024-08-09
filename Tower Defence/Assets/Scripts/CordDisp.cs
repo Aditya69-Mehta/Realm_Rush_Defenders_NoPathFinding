@@ -2,22 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 [ExecuteAlways]
 public class CordDisp : MonoBehaviour
 {
-    TextMeshPro coordText;
     Vector2Int coord = new Vector2Int();
+    TextMeshPro coordText;
+
+    Waypoint waypoint;
+
 
 
     void Awake(){
         coordText = GetComponent<TextMeshPro>();
+        coordText.enabled = false;
+        
+        waypoint = GetComponentInParent<Waypoint>();
     }
 
     void Update()
     {
         if(!Application.isPlaying){
             DispCoord();
+        }
+
+        ChangeColor();
+        ToggleCoord();
+    }
+
+    void ToggleCoord()
+    {
+        if(Input.GetKeyDown(KeyCode.C)){
+            coordText.enabled = !coordText.IsActive();
+        }
+    }
+
+    void ChangeColor()
+    {
+        if(!waypoint.IsPlaceable){
+            coordText.color = Color.gray;
         }
     }
 
