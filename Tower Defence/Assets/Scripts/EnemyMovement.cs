@@ -8,11 +8,17 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] List<Waypoint> path = new List<Waypoint>();
     [SerializeField] [Range(0f, 5f)] float enemySpeed = 1f;
 
+    Enemy enemy;
 
-    void Start()
+    void Start(){
+        enemy = GetComponent<Enemy>();
+    }
+
+    void OnEnable()
     {
         // Debug.Log("Initiated Start");
         FindPath();
+        ReturnToStart();
         StartCoroutine(FollowWaypoint());
         // Debug.Log("Start Ended");
     }
@@ -49,6 +55,7 @@ public class EnemyMovement : MonoBehaviour
 
         }
 
-        Destroy(gameObject);
+        enemy.Penalty();
+        gameObject.SetActive(false);
     }
 }

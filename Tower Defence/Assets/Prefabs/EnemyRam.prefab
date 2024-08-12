@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 230323616975113380}
   - component: {fileID: 7476494620983371874}
   - component: {fileID: 8352039509115027176}
+  - component: {fileID: 1053416503874176140}
   m_Layer: 0
   m_Name: EnemyRam
   m_TagString: Untagged
@@ -173,3 +174,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+--- !u!114 &1053416503874176140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040643765344069697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611a2abd304ec498eaf1db1796c8a50b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

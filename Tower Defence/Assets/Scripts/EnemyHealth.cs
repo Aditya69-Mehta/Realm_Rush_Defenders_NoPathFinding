@@ -6,11 +6,16 @@ public class EnemyHealth : MonoBehaviour
 {
 
     [SerializeField] int maxHealth = 5;
-    // int currHealth;
+    int currHealth;
+    Enemy enemy;
 
-    void Start()
+    void Start(){
+        enemy = FindObjectOfType<Enemy>();
+    }
+
+    void OnEnable()
     {
-        // currHealth=maxHealth;
+        currHealth=maxHealth;
     }
 
     void OnParticleCollision(GameObject other)
@@ -18,9 +23,12 @@ public class EnemyHealth : MonoBehaviour
         ProcessHit();
     }
 
-    private void ProcessHit()
+    void ProcessHit()
     {
-        maxHealth--;
-        if (maxHealth < 1) Destroy(gameObject);
+        currHealth--;
+        if (currHealth < 1){
+            enemy.Reward();
+            gameObject.SetActive(false);
+        }
     }
 }
