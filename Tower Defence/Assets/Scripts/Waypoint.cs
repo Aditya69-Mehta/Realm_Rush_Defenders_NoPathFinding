@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
-    [SerializeField] GameObject towerPrefab;
+    [SerializeField] Weapon towerPrefab;
 
     [SerializeField] bool isPlaceable;
     public bool IsPlaceable {
-        get{ // Like A Getter But Property. 
+        get{ // Like A Getter But This Is Called Property. 
             return isPlaceable;
         }
     }
@@ -16,8 +16,8 @@ public class Waypoint : MonoBehaviour
     void OnMouseDown(){
         if(isPlaceable){
             // Debug.Log(name);
-            Instantiate(towerPrefab, transform.position, Quaternion.identity);
-            isPlaceable=false;
+            bool isPlaced = towerPrefab.CreateTower(towerPrefab, transform.position);
+            isPlaceable = !isPlaced;
         }
     }
 }

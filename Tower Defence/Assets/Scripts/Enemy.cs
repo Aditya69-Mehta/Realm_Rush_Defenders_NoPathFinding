@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        bank = GetComponent<Bank>();
+        bank = FindObjectOfType<Bank>();
     }
 
     public void Reward(){
