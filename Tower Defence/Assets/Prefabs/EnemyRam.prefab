@@ -92,8 +92,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5672325927823913723}
-  - component: {fileID: 230323616975113380}
   - component: {fileID: 7476494620983371874}
+  - component: {fileID: 230323616975113380}
   - component: {fileID: 8352039509115027176}
   - component: {fileID: 1053416503874176140}
   m_Layer: 0
@@ -119,27 +119,6 @@ Transform:
   - {fileID: 5100346723484795811}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &230323616975113380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5040643765344069697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc19cf478cbaa46e8b5e3f5d1d682adb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  path:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  enemySpeed: 1
 --- !u!65 &7476494620983371874
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -161,6 +140,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4, y: 4, z: 4}
   m_Center: {x: 0, y: 2.46, z: 0}
+--- !u!114 &230323616975113380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040643765344069697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc19cf478cbaa46e8b5e3f5d1d682adb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: []
+  enemySpeed: 0.5
+  enemySpeedRamp: 0
 --- !u!114 &8352039509115027176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c210737555f1a41ffa3a40d473a3309f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 3
+  difficultyRamp: 4
 --- !u!114 &1053416503874176140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,3 +181,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611a2abd304ec498eaf1db1796c8a50b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rewardAmnt: 25
+  penaltyAmnt: 20

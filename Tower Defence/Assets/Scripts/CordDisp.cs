@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 
+[RequireComponent(typeof(TextMeshPro))]
 [ExecuteAlways]
 public class CordDisp : MonoBehaviour
 {
@@ -25,9 +26,10 @@ public class CordDisp : MonoBehaviour
     {
         if(!Application.isPlaying){
             DispCoord();
+            coordText.enabled =true;
         }
 
-        ChangeColor();
+        ChangeCoordColor();
         ToggleCoord();
     }
 
@@ -38,7 +40,7 @@ public class CordDisp : MonoBehaviour
         }
     }
 
-    void ChangeColor()
+    void ChangeCoordColor()
     {
         if(!waypoint.IsPlaceable){
             coordText.color = Color.gray;

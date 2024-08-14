@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(Enemy))]
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] List<Waypoint> path = new List<Waypoint>();
     [SerializeField] [Range(0f, 5f)] float enemySpeed = 1f;
+    [SerializeField] [Range(0f, 1f)] float enemySpeedRamp = 0.1f;
 
     Enemy enemy;
 
@@ -28,7 +31,9 @@ public class EnemyMovement : MonoBehaviour
 
         GameObject waypoints = GameObject.FindGameObjectWithTag("Path");
         foreach(Transform child in waypoints.transform){
-            path.Add(child.GetComponent<Waypoint>());
+            Waypoint waypoint = child.GetComponent<Waypoint>();
+
+            if(waypoint != null) path.Add(waypoint);
 
         }
     }
@@ -55,7 +60,17 @@ public class EnemyMovement : MonoBehaviour
 
         }
 
+        FinishPath();
+    }
+
+    void FinishPath(){
         enemy.Penalty();
         gameObject.SetActive(false);
+        
+        EnemySpeedRamp();
+    }
+
+    void EnemySpeedRamp(){
+        if(enemySpeed < 5) enemySpeed += enemySpeedRamp;
     }
 }
